@@ -88,7 +88,7 @@
 
 var app = angular.module("myApp", []);
 
-app.controller("newApp", function ($scope) {
+app.controller("newApp", function($scope) {
     $scope.name = { firstName: "shubham", lastName: "sinha" };
     $scope.firstName = "shubham";
     $scope.lastName = "sinha";
@@ -96,17 +96,17 @@ app.controller("newApp", function ($scope) {
 });
 
 
-app.controller("HelloWorldCtrl", function ($scope) {
+app.controller("HelloWorldCtrl", function($scope) {
     $scope.name = "shubham";
     $scope.message = "Hello";
     console.log($scope.message + " from HelloWorldCtrl");
 });
 
-app.controller("team", function ($scope) {
+app.controller("team", function($scope) {
     $scope.name = ["Shubham Sinha", "Arun Singh", "Harish Kumar", "Shivam Bhatnagar"];
 });
 
-app.controller("array", function ($scope) {
+app.controller("array", function($scope) {
     $scope.names = [
         { firstName: "Shubham ", lastName: "Sinha" },
         { firstName: "Harish", lastName: "Kumar" },
@@ -115,25 +115,25 @@ app.controller("array", function ($scope) {
     ]
 });
 
-app.controller("image", function ($scope) {
+app.controller("image", function($scope) {
     $scope.source = "wpaper.jpg";
     $scope.description = "Boxing Image";
 });
 
 
-app.controller("userName", function ($rootScope, $scope, $http) {
+app.controller("userName", function($rootScope, $scope, $http) {
 
-    $rootScope.$on("CallSearchMethod", function(){
+    $rootScope.$on("CallSearchMethod", function() {
         $scope.search($scope.userName);
         console.log($scope.userName);
         return $scope.userName;
-     });
+    });
 
     $scope.userName = "Praveen";
 
-    $scope.search = function (username) {
-        $http.get("https://api.github.com/users/" + username).then(function (response) {
-            console.log("https://api.github.com/users/" + username+" :url")
+    $scope.search = function(username) {
+        $http.get("https://api.github.com/users/" + username).then(function(response) {
+            console.log("https://api.github.com/users/" + username + " :url")
             console.log("Getting the data");
             console.log("Configuration");
             console.log(response.config);
@@ -142,29 +142,29 @@ app.controller("userName", function ($rootScope, $scope, $http) {
             console.log("Headers");
             console.log(response.headers);
             $scope.userData = response.data;
-            $http.get(response.data.repos_url).then(function (response) {
+            $http.get(response.data.repos_url).then(function(response) {
                 $scope.repos = response.data;
                 console.log(response);
             })
             console.log(response);
-        }, function (reason) {
+        }, function(reason) {
             $scope.error = "No user with this name";
         });
     }
 });
 
-app.controller("countDown", function($rootScope, $scope, $interval){
-    var countDown = function(){
+app.controller("countDown", function($rootScope, $scope, $interval) {
+    var countDown = function() {
         $scope.countDown -= 1;
         $scope.message = "Either you search or i search for you!"
-        if($scope.countDown<1){
+        if ($scope.countDown < 1) {
             $rootScope.$emit("CallSearchMethod", {})
-            // console.log();
+                // console.log();
             console.log("Function is working");
-        }    
+        }
     }
     $scope.countDown = 5;
-    
+
     $interval(countDown, 1000, 5);
 
 
@@ -211,27 +211,10 @@ app.controller("countDown", function($rootScope, $scope, $interval){
 
 //worked the first time and then it got forbidden
 
-app.controller("jsonFetch", function ($scope, $http) {
-    $http.get("https://api.github.com/users/odetocode").then(function (response) {
+app.controller("jsonFetch", function($scope, $http) {
+    $http.get("https://api.github.com/users/odetocode").then(function(response) {
         console.log("Getting the data");
         $scope.userData = response.data;
         console.log($scope.userData);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
