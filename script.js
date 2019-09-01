@@ -133,20 +133,21 @@ app.controller("userName", function($rootScope, $scope, $http) {
 
     $scope.search = function(username) {
         $http.get("https://api.github.com/users/" + username).then(function(response) {
-            console.log("https://api.github.com/users/" + username + " :url")
-            console.log("Getting the data");
-            console.log("Configuration");
-            console.log(response.config);
-            console.log("Data");
+            // console.log("https://api.github.com/users/" + username + " :url")
+            // console.log("Getting the data");
+            // console.log("Configuration");
+            // console.log(response.config);
+            // console.log("Data");
             console.log(response.data);
-            console.log("Headers");
-            console.log(response.headers);
+            // console.log("Headers");
+            // console.log(response.headers);
             $scope.userData = response.data;
             $http.get(response.data.repos_url).then(function(response) {
-                $scope.repos = response.data;
-                console.log(response);
-            })
-            console.log(response);
+                    $scope.repos = response.data;
+                    // console.log(response);
+                })
+                // console.log(response);
+            console.log($scope);
         }, function(reason) {
             $scope.error = "No user with this name";
         });

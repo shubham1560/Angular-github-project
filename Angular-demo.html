@@ -7,14 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script data-require="angular.js@*" data-semver="4.0.0"
-        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script data-require="angular.js@*" data-semver="4.0.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
 
-        <!-- <script data-require="angular.js@1.5.8" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script> -->
-        <script data-require="angular-route@1.6.2" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
-       
+    <!-- <script data-require="angular.js@1.5.8" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script> -->
+    <script data-require="angular-route@1.6.2" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
+
     <!-- <script data-require="angular.js@*" data-semver="4.0.0" src="script.ts"></script>
     <script data-require="angular.js@*" data-semver="4.0.0" src="system.config.js"></script>
     <script data-require="angular.js@*" data-semver="4.0.0" src="tsconfig.json"></script> -->
@@ -25,9 +23,10 @@
 <body>
     <div ng-app="myApp">
         <div class="container" ng-controller="countDown">
-            {{countDown}}
-            <br>
-            {{message}}
+            <div class="row">
+                {{countDown}}
+                <br> {{message}}
+            </div>
         </div>
 
         <!-- <br><br><br>
@@ -82,38 +81,72 @@
             <!-- {{userName}} -->
             {{error}}
             <br><br>
-            <input type="text" ng-model="userName" required>
-            <input type="submit" ng-click="search(userName)">
-            <div ng-if="userData">
-                {{userData.length}}
-                <h6>login: </h6> {{userData.name}}
-                <h6>id: </h6> {{userData.id}}
-                <h6>url: </h6> {{userData.url}}
-                <h6>Repository : </h6>{{userData.repos_url}}
-                <h6>{{userData.length}}</h6>
-                <br>
-                <img ng-src={{userData.avatar_url}} height="400" width="400">
-                <div ng-if="repos.length>0">
-                    <h6>Total Repositories</h6>{{repos.length}}
-                    <!-- <input type="hidden"> -->
-                    <table>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <input class="form-group" type="text" ng-model="userName" required>
+
+                    <button type="button" class="btn btn-primary" ng-click="search(userName)">Search UserName</button>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="row" ng-if="userData">
+                <!-- {{userData.length}} -->
+
+                <div class="col-md-4">
+                    <img ng-src={{userData.avatar_url}} class="img-thumbnail">
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-sm table-light">
                         <thead>
                             <tr>
-                                <th>Full Name</th>
+                                <th scope="col">PERSON'S PROFILE:</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>login:</b></td>
+                                <td>{{userData.name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Id:</td>
+                                <td>{{userData.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>Url:</td>
+                                <td>{{userData.url}}</td>
+                            </tr>
+                            <tr>
+                                <td>Repository:</td>
+                                <td>{{userData.repos_url}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br><br>
+            <div class="row" ng-if="userData">
+
+                <div class="col-md-12">
+                    <b>Total Repositories: </b>{{repos.length}}
+                    <table class="table table-sm table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Repository</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="repo in repos">
+                                <td>{{$index+1}}</td>
                                 <td>{{repo.full_name}}</td>
                             </tr>
                         </tbody>
-
                     </table>
                 </div>
             </div>
         </div>
-        <br><br><br>
-
     </div>
 </body>
 
