@@ -114,20 +114,26 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><b>login:</b></td>
+                                <td><b>login</b></td>
                                 <td>{{userData.name}}</td>
                             </tr>
                             <tr>
-                                <td>Id:</td>
+                                <td><b>Id</b></td>
                                 <td>{{userData.id}}</td>
                             </tr>
                             <tr>
-                                <td>Url:</td>
+                                <td><b>Url</b></td>
                                 <td>{{userData.url}}</td>
                             </tr>
                             <tr>
-                                <td>Repository:</td>
+                                <td><b>Repository</b></td>
                                 <td>{{userData.repos_url}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Github Profile</b></td>
+                                <td>
+                                    <a href={{userData.html_url}} target="_blank">Profile</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -143,12 +149,13 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Repository</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="repo in repos">
                                 <td>{{$index+1}}</td>
-                                <td>{{repo.full_name}}</td>
+                                <td>{{repo.name}}</td>
                             </tr>
                         </tbody>
                     </table>

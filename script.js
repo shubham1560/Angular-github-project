@@ -129,7 +129,7 @@ app.controller("userName", function($rootScope, $scope, $http) {
         return $scope.userName;
     });
 
-    $scope.userName = "Praveen";
+    $scope.userName = "shubham1560";
 
     $scope.search = function(username) {
         $http.get("https://api.github.com/users/" + username).then(function(response) {
@@ -144,6 +144,7 @@ app.controller("userName", function($rootScope, $scope, $http) {
             $scope.userData = response.data;
             $http.get(response.data.repos_url).then(function(response) {
                     $scope.repos = response.data;
+                    console.log($scope.repos);
                     // console.log(response);
                 })
                 // console.log(response);
