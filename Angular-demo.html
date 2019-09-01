@@ -22,12 +22,12 @@
 
 <body>
     <div ng-app="myApp">
-        <div class="container" ng-controller="countDown">
+        <!-- <div class="container" ng-controller="countDown">
             <div class="row">
                 {{countDown}}
                 <br> {{message}}
             </div>
-        </div>
+        </div> -->
 
         <!-- <br><br><br>
         {{43/42}}
@@ -82,11 +82,19 @@
             {{error}}
             <br><br>
             <div class="row">
-                <div class="col-md-12">
 
-                    <input class="form-group" type="text" ng-model="userName" required>
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <div class="pull-right">
 
-                    <button type="button" class="btn btn-primary" ng-click="search(userName)">Search UserName</button>
+                        <form class="form-inline pull-right">
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label for="inputPassword2" class="sr-only">User Name</label>
+                                <input type="text" class="form-control" ng-model="userName" required id="inputPassword2" placeholder="User Name">
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2" ng-click="search(userName)">Search UserName</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <br><br><br>

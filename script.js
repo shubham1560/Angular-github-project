@@ -147,7 +147,7 @@ app.controller("userName", function($rootScope, $scope, $http) {
                     // console.log(response);
                 })
                 // console.log(response);
-            console.log($scope);
+                // console.log($scope);
         }, function(reason) {
             $scope.error = "No user with this name";
         });
@@ -166,7 +166,7 @@ app.controller("countDown", function($rootScope, $scope, $interval) {
     }
     $scope.countDown = 5;
 
-    $interval(countDown, 1000, 5);
+    // $interval(countDown, 1000, 5);
 
 
 });
