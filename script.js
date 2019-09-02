@@ -129,27 +129,19 @@ app.controller("userName", function($rootScope, $scope, $http) {
         return $scope.userName;
     });
 
-    $scope.userName = "shubham1560";
+    $scope.userName = "";
 
     $scope.search = function(username) {
         $http.get("https://api.github.com/users/" + username).then(function(response) {
-            // console.log("https://api.github.com/users/" + username + " :url")
-            // console.log("Getting the data");
-            // console.log("Configuration");
-            // console.log(response.config);
-            // console.log("Data");
+            $scope.user = true;
             console.log(response.data);
-            // console.log("Headers");
-            // console.log(response.headers);
             $scope.userData = response.data;
             $http.get(response.data.repos_url).then(function(response) {
-                    $scope.repos = response.data;
-                    console.log($scope.repos);
-                    // console.log(response);
-                })
-                // console.log(response);
-                // console.log($scope);
+                $scope.repos = response.data;
+                console.log($scope.repos);
+            })
         }, function(reason) {
+            $scope.user = false;
             $scope.error = "No user with this name";
         });
     }

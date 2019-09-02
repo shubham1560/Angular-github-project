@@ -96,8 +96,9 @@
                     </div>
                 </div>
             </div>
-            <br> {{error}}
-            <div class="row" ng-if="userData">
+            <br>
+            <div ng-if="!user">{{error}}</div>
+            <div class="row" ng-if="user">
                 <!-- {{userData.length}} -->
                 <div class="col-md-4">
                     <img ng-src={{userData.avatar_url}} class="img-thumbnail">
@@ -116,12 +117,12 @@
                                 <td>{{userData.name}}</td>
                             </tr>
                             <tr>
-                                <td><b>Url</b></td>
-                                <td>{{userData.url}}</td>
+                                <td><b>Location</b></td>
+                                <td>{{userData.location}}</td>
                             </tr>
                             <tr>
-                                <td><b>Repository</b></td>
-                                <td>{{userData.repos_url}}</td>
+                                <td><b>Company</b></td>
+                                <td>{{userData.company}}</td>
                             </tr>
                             <tr>
                                 <td><b>Github Profile</b></td>
@@ -134,7 +135,7 @@
                 </div>
             </div>
             <br><br>
-            <div class="row" ng-if="userData">
+            <div class="row" ng-if="user">
 
                 <div class="col-md-12">
                     <b>Total Repositories: </b>{{repos.length}}
@@ -143,13 +144,26 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Repository</th>
-
+                                <th scope="col">Language</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="repo in repos">
                                 <td>{{$index+1}}</td>
-                                <td>{{repo.name}}</td>
+                                <!-- <td>{{repo.name}}</td> -->
+                                <td>
+                                    <div class="list-group">
+                                        <a href={{repo.svn_url}} target="_blank" class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="d-flex w-10 justify-content-between">
+                                                <h5 class="mb-1">{{repo.name}}</h5>
+                                                <small>Commits</small>
+                                            </div>
+                                            <p class="mb-1">{{repo.description}}</small>
+                                        </a>
+                                    </div>
+                                </td>
+
+                                <td>{{repo.language}}</td>
                             </tr>
                         </tbody>
                     </table>
