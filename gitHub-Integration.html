@@ -2,80 +2,20 @@
 <html>
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script data-require="angular.js@*" data-semver="4.0.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
 
-    <!-- <script data-require="angular.js@1.5.8" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script> -->
     <script data-require="angular-route@1.6.2" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
 
-    <!-- <script data-require="angular.js@*" data-semver="4.0.0" src="script.ts"></script>
-    <script data-require="angular.js@*" data-semver="4.0.0" src="system.config.js"></script>
-    <script data-require="angular.js@*" data-semver="4.0.0" src="tsconfig.json"></script> -->
     <link rel="stylesheet" href="customStyle.css" />
     <script src="script.js"></script>
 </head>
 
 <body>
     <div ng-app="myApp">
-        <!-- <div class="container" ng-controller="countDown">
-            <div class="row">
-                {{countDown}}
-                <br> {{message}}
-            </div>
-        </div> -->
-
-        <!-- <br><br><br>
-        {{43/42}}
-        <div ng-controller="HelloWorldCtrl">
-            {{message}} <br>
-            {{name}}
-        </div>
-        <div ng-controller="newApp">
-            {{name.firstName}}
-            {{name.lastName}}
-            {{firstName}}
-            {{lastName}}
-        </div>
-        <div ng-controller="team">
-            <br>
-            <h6>From array of Names</h6>
-            <div ng-repeat="y in name">
-                {{y}}
-            </div>
-        </div>
-        <div ng-controller="array">
-            <br>
-            <h6>From array of objects</h6>
-            <div ng-repeat="y in names">
-                {{y.firstName}}
-            </div>
-
-        </div>
-        <br><br>
-        <div class="container">
-            <div ng-controller="image">
-
-                <img ng-src={{source}} alt={{description}} height="300" width="600">
-            </div>
-        </div>
-        <div class="container">
-            <div ng-controller="jsonFetch" ng-if="userData.length>0">
-
-                <h6>login: </h6> {{userData.login}}
-                <h6>id: </h6> {{userData.id}}
-                <h6>url: </h6> {{userData.url}}
-                <br>
-                <img ng-src={{userData.avatar_url}}>
-
-
-                <h1>Hello!</h1>
-            </div>
-        </div> -->
 
         <div class="container" ng-controller="userName">
             <!-- {{userName}} -->
@@ -150,7 +90,6 @@
                         <tbody>
                             <tr ng-repeat="repo in repos">
                                 <td>{{$index+1}}</td>
-                                <!-- <td>{{repo.name}}</td> -->
                                 <td>
                                     <div class="list-group">
                                         <a href={{repo.svn_url}} target="_blank" class="list-group-item list-group-item-action flex-column align-items-start">
