@@ -134,20 +134,33 @@ app.controller("userName", function($rootScope, $scope, $http) {
     $scope.search = function(username) {
         $http.get("https://api.github.com/users/" + username).then(function(response) {
             $scope.user = true;
-            // console.log(response.data);
+            console.log(response.data);
             $scope.userData = response.data;
             var commits_url = "";
             $http.get(response.data.repos_url).then(function(response) {
                 $scope.repos = response.data;
                 console.log($scope.repos);
                 var i = 0;
+
                 while (i < $scope.repos.length) {
-                    console.log(i);
-                    console.log(typeof i);
+                    console.log($scope.repos[i].name);
+                    // console.log(i);
+                    // console.log(typeof i);
                     var repCommit = $scope.repos[i].commits_url.split("{")[0];
                     // console.log($scope.repos[i].commits_url.split("{")[0]);
                     // $scope.repos[i].commitment = 0;
+
                     $http.get(repCommit).then(function(response) {
+                        console.log(response.config.url.split("/")[5]);
+                        var j = 0;
+                        while (j < $scope.repos.length) {
+                            if ($scope.repos[j].name == response.config.url.split("/")[5]) {
+                                $scope.repos[j].numOfCommits = response.data.length;
+                            }
+                            j += 1
+                        }
+
+
                         // $http.get($scope.repos[i].commits_url.split("{")[0]).then(function(response) {
                         // console.log(typeof i);
                         // console.log(response);
