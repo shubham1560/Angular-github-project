@@ -7,15 +7,20 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script data-require="angular.js@*" data-semver="4.0.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
-
     <script data-require="angular-route@1.6.2" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="customStyle.css" />
     <script src="script.js"></script>
 </head>
 
 <body>
     <div ng-app="myApp">
+
+
 
         <div class="container" ng-controller="userName">
             <!-- {{userName}} -->
@@ -24,7 +29,36 @@
 
                 <div class="col-md-6">
                     <div ng-controller="fetchLocation">
-                        {{location}}
+                        <!-- {{location}} -->
+
+                        <!-- {{location}} -->
+                        <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Stat
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                {{location.data}}
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Key</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key, value) in location.data">
+                                            <td>{{key}}</td>
+                                            <td>{{value}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="col-md-6">
