@@ -121,6 +121,14 @@ app.controller("image", function($scope) {
 });
 
 
+app.controller("fetchLocation", function($scope, $http) {
+    $http.get("https://ipapi.co/json/").then(function(response) {
+        console.log(response);
+        $scope.location = response;
+    })
+})
+
+
 app.controller("userName", function($rootScope, $scope, $http) {
 
     $rootScope.$on("CallSearchMethod", function() {
@@ -134,16 +142,16 @@ app.controller("userName", function($rootScope, $scope, $http) {
     $scope.search = function(username) {
         $http.get("https://api.github.com/users/" + username).then(function(response) {
             $scope.user = true;
-            console.log(response.data);
+            // console.log(response.data);
             $scope.userData = response.data;
             var commits_url = "";
             $http.get(response.data.repos_url).then(function(response) {
                 $scope.repos = response.data;
-                console.log($scope.repos);
+                // console.log($scope.repos);
                 var i = 0;
 
                 while (i < $scope.repos.length) {
-                    console.log($scope.repos[i].name);
+                    // console.log($scope.repos[i].name);
                     // console.log(i);
                     // console.log(typeof i);
                     var repCommit = $scope.repos[i].commits_url.split("{")[0];
@@ -151,7 +159,7 @@ app.controller("userName", function($rootScope, $scope, $http) {
                     // $scope.repos[i].commitment = 0;
 
                     $http.get(repCommit).then(function(response) {
-                        console.log(response.config.url.split("/")[5]);
+                        // console.log(response.config.url.split("/")[5]);
                         var j = 0;
                         while (j < $scope.repos.length) {
                             if ($scope.repos[j].name == response.config.url.split("/")[5]) {
