@@ -17,17 +17,15 @@
 <body>
     <div ng-app="myApp">
 
-        <div ng-controller="fetchLocation">
-            {{location}}
-        </div>
-
         <div class="container" ng-controller="userName">
             <!-- {{userName}} -->
             <br>
             <div class="row">
 
                 <div class="col-md-6">
-
+                    <div ng-controller="fetchLocation">
+                        {{location}}
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pull-right">
