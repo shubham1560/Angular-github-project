@@ -33,13 +33,13 @@
 
                         <!-- {{location}} -->
                         <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                Stat
+                            <a class="btn" style="border: 1px solid darkturquoise" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                User Stats
                             </a>
                         </p>
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
-                                {{location.data}}
+                                <!-- {{location.data}} -->
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -49,8 +49,8 @@
                                     </thead>
                                     <tbody>
                                         <tr ng-repeat="(key, value) in location.data">
-                                            <td>{{key}}</td>
-                                            <td>{{value}}</td>
+                                            <td ng-if=key!="languages">{{key}}</td>
+                                            <td ng-if=key!="languages">{{value}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
