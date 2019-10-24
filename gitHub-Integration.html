@@ -15,7 +15,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="customStyle.css" />
     <script src="script.js"></script>
-    <script src="formValidation.js"></script>
+    <script type="module" src="formValidation.js"></script>
+    <script type="module" src="form.js"></script>
 </head>
 
 <body>
@@ -23,13 +24,26 @@
 
         <h1></h1>
         <div class="container">
-            <div class="col-xs-6">
-                <form action="/action_page.php">
-                    First name:<br>
-                    <input type="text" name="firstname"><br> Last name:<br>
-                    <input type="text" name="lastname" value="Mouse"><br><br>
-                    <input type="submit" value="Submit">
-                </form>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="/action_page.php">
+                        First name:<br>
+                        <input type="text" name="firstname"><br> Last name:<br>
+                        <input type="text" name="lastname" value="Mouse"><br><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <form action="/action_page.php" id="form1">
+                        <label for="male" form="form1">Male</label>
+                        <input type="radio" name="gender" id="male" value="male"><br>
+                        <label for="female">Female</label>
+                        <input type="radio" name="gender" id="female" value="female"><br>
+                        <label for="other">Other</label>
+                        <input type="radio" name="gender" id="other" value="other"><br><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -156,3 +170,11 @@
 </body>
 
 </html>
+
+
+
+<script>
+    // console.log("Script");
+    // var a = new formValid();
+    // a.setMandatory("firstname", true);
+</script>
