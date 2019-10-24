@@ -15,12 +15,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="customStyle.css" />
     <script src="script.js"></script>
+    <script src="formValidation.js"></script>
 </head>
 
 <body>
     <div ng-app="myApp">
 
         <h1></h1>
+        <div class="container">
+            <div class="col-xs-6">
+                <form action="/action_page.php">
+                    First name:<br>
+                    <input type="text" name="firstname"><br> Last name:<br>
+                    <input type="text" name="lastname" value="Mouse"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
 
         <div class="container" ng-controller="userName">
             <!-- {{userName}} -->
