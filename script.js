@@ -86,6 +86,9 @@
 
 // // Important
 
+// let myHeading = document.querySelector('h1');
+// myHeading.textContent = 'Hello world!';
+
 var app = angular.module("myApp", []);
 
 app.controller("newApp", function($scope) {
@@ -142,7 +145,7 @@ app.controller("userName", function($rootScope, $scope, $http) {
     $scope.search = function(username) {
         $http.get("https://api.github.com/users/" + username).then(function(response) {
             $scope.user = true;
-            // console.log(response.data);
+            console.log(response);
             $scope.userData = response.data;
             var commits_url = "";
             $http.get(response.data.repos_url).then(function(response) {

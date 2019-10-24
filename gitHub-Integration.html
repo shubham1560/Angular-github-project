@@ -20,7 +20,7 @@
 <body>
     <div ng-app="myApp">
 
-
+        <h1></h1>
 
         <div class="container" ng-controller="userName">
             <!-- {{userName}} -->
@@ -57,21 +57,15 @@
 
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="pull-right">
-
-                        <form class="form-inline pull-right">
-                            <div class="form-group mx-sm-3 mb-2">
-                                <!-- <label for="inputPassword2" class="sr-only">User Name</label> -->
-                                <input type="text" class="form-control" ng-model="userName" placeholder="github User Name">
-                            </div>
-                            <button type="submit" class="btn btn-primary mb-2" ng-click="search(userName)">Search</button>
-                        </form>
-                    </div>
+                    <form class="form-inline">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" class="form-control" ng-model="userName" placeholder="github User Name">
+                            <button type="submit" class="btn btn-primary" ng-click="search(userName)">Search</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <br>
@@ -140,7 +134,6 @@
                                         </a>
                                     </div>
                                 </td>
-
                                 <td>{{repo.language}}</td>
                             </tr>
                         </tbody>
