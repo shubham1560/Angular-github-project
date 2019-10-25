@@ -79,11 +79,32 @@ formValid.prototype.addInfoMessage = function(message) {
     var a = document.createElement("div");
     // a.setAttribute("id", "info");
     a.style.marginTop = "10px";
-    a.style.backgroundColor = "black";
     a.style.backgroundColor = "#b5dde5";
     a.style.border = "1px solid #6abecf";
     a.style.padding = "2px 5px 2px 5px";
     a.style.borderRadius = "2px";
     a.innerHTML = message;
     document.getElementsByTagName("form")[0].appendChild(a);
+}
+
+
+formValid.prototype.addErroMessage = function(message) {
+
+    var a = document.createElement("div");
+    // a.setAttribute("id", "info");
+    a.style.marginTop = "10px";
+    a.style.backgroundColor = "#ff9999";
+    a.style.border = "1px solid Red";
+    a.style.padding = "2px 5px 2px 5px";
+    a.style.borderRadius = "2px";
+    a.innerHTML = message;
+    document.getElementsByTagName("form")[0].appendChild(a);
+}
+
+
+formValid.prototype.addOption = function(choiceName, value, label) {
+    var a = document.createElement("option")
+    a.setAttribute("value", value)
+    a.innerText = label
+    document.getElementsByName(choiceName)[0].appendChild(a);
 }
