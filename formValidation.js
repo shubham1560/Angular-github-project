@@ -36,7 +36,7 @@ formValid.prototype.setMandatory = function(value, status) {
 
 
 formValid.prototype.setReadOnly = function(value, status) {
-    var element = document.getElementsByName("firstname");
+    var element = document.getElementsByName(value);
     var set = setInterval(function readonly() {
         if (document.readyState == "complete") {
             clearInterval(set);
@@ -49,14 +49,41 @@ formValid.prototype.setReadOnly = function(value, status) {
                         element[0].removeAttribute("readonly");
                     }
                 } else {
-                    console.log("Should be boolean");
+                    console.error("the second argument should be boolean");
                 }
             } else {
-                console.log("error for length");
+                console.error("error for length");
             }
         }
     }, 1)
 }
 
-// [0].style.backgroundColor = "black"
-// document.getElementsByName("firstname")[0].setAttribute("readonly", true)
+formValid.prototype.setValue = function(fieldname, value) {
+
+    var set = setInterval(function() {
+        var element = document.getElementsByName(fieldname)[0];
+        if (document.readyState == "complete") {
+            element.setAttribute("value", value);
+            console.log(document.readyState);
+            clearInterval(set);
+        } else {
+            console.log(document.readyState);
+        }
+    }, 1);
+
+}
+
+
+formValid.prototype.addInfoMessage = function(message) {
+
+    var a = document.createElement("div");
+    // a.setAttribute("id", "info");
+    a.style.marginTop = "10px";
+    a.style.backgroundColor = "black";
+    a.style.backgroundColor = "#b5dde5";
+    a.style.border = "1px solid #6abecf";
+    a.style.padding = "2px 5px 2px 5px";
+    a.style.borderRadius = "2px";
+    a.innerHTML = message;
+    document.getElementsByTagName("form")[0].appendChild(a);
+}
