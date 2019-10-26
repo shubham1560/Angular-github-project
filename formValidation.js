@@ -78,6 +78,7 @@ formValid.prototype.addInfoMessage = function(message) {
 
     var a = document.createElement("div");
     // a.setAttribute("id", "info");
+    a.setAttribute("class", "message");
     a.style.marginTop = "10px";
     a.style.backgroundColor = "#b5dde5";
     a.style.border = "1px solid #6abecf";
@@ -91,6 +92,7 @@ formValid.prototype.addInfoMessage = function(message) {
 formValid.prototype.addErroMessage = function(message) {
 
     var a = document.createElement("div");
+    a.setAttribute("class", "message");
     // a.setAttribute("id", "info");
     a.style.marginTop = "10px";
     a.style.backgroundColor = "#ff9999";
