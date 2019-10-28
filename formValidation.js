@@ -1,7 +1,7 @@
 var errorMessage = { 'why': "", "resolution": "" };
 
 export function formValid() {
-    this.intro = "form validation";
+    // this.intro = "form validation";
 }
 
 formValid.prototype.setMandatory = function(value, status) {
