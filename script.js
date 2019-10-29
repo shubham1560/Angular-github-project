@@ -143,6 +143,14 @@ app.controller("userName", function($rootScope, $scope, $http) {
     $scope.userName = "shubham1560";
 
     $scope.search = function(username) {
+
+        localStorage.setItem("new", username);
+        if (localStorage.getItem("old") == undefined) {
+            localStorage.setItem("old", localStorage.getItem("new"));
+        }
+        if (localStorage.getItem("new") == localStorage.getItem("old")) {
+            localStorage.setItem("old", localStorage.getItem("new"));
+        }
         $http.get("https://api.github.com/users/" + username).then(function(response) {
             $scope.user = true;
             console.log(response);

@@ -12,9 +12,6 @@ formValid.prototype.setMandatory = function(value, status) {
             clearInterval(set);
             if (element.length == 1) {
                 if (status) {
-                    // if (element[0].hasAttribute("readonly")) { 
-                    // console.error("Can't be set to mandatory as the field is readonly")
-                    // }
                     element[0].setAttribute("required", true);
                 } else {
                     element[0].removeAttribute("required");
@@ -109,4 +106,15 @@ formValid.prototype.addOption = function(choiceName, value, label) {
     a.setAttribute("value", value)
     a.innerText = label
     document.getElementsByName(choiceName)[0].appendChild(a);
+}
+
+
+formValid.prototype.setDisplay = function(value, status) {
+    console.log(document.readyState);
+    document.getElementsByTagName("body")[0].onload(
+        // function() {
+        // console.log(document.readyState)
+        document.getElementsByName(value)[0].style.display = "none"
+        // }
+    );
 }
