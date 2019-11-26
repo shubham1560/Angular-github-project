@@ -126,7 +126,7 @@ app.controller("image", function($scope) {
 
 app.controller("fetchLocation", function($scope, $http) {
     $http.get("https://ipapi.co/json/").then(function(response) {
-        console.log(response);
+        // console.log(response);
         $scope.location = response;
     })
 })
